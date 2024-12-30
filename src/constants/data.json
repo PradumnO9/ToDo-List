@@ -1,0 +1,40 @@
+{
+    "todo-tasks" : {
+        "id": "001",
+        "title": "ToDo Tasks",
+        "list" : [
+            {
+                "id": 3,
+                "text": "go to gym",
+                "status": "todo"
+            },
+            {
+                "id": 4,
+                "text": "eat vegetables",
+                "status": "todo"
+            }
+        ]
+    },
+    "working-tasks" : {
+        "id": 2,
+        "title": "Working Tasks",
+        "list": [
+            {
+                "id": "01",
+                "text": "study 2 hours",
+                "status": "working"
+            }
+        ]
+    },
+    "finished-tasks" : {
+        "id": 1,
+        "title": "Finished Tasks",
+        "list": [
+            {
+                "id": "02",
+                "text": "walk 10k steps",
+                "status": "finished"
+            }
+        ]
+    }
+}
