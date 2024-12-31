@@ -16,22 +16,22 @@
         ]
     },
     "working-tasks" : {
-        "id": 2,
+        "id": "002",
         "title": "Working Tasks",
         "list": [
             {
-                "id": "01",
+                "id": 1,
                 "text": "study 2 hours",
                 "status": "working"
             }
         ]
     },
     "finished-tasks" : {
-        "id": 1,
+        "id": "003",
         "title": "Finished Tasks",
         "list": [
             {
-                "id": "02",
+                "id": 2,
                 "text": "walk 10k steps",
                 "status": "finished"
             }
