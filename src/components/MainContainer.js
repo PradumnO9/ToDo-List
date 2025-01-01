@@ -1,29 +1,12 @@
-import { useState } from "react";
-import data from "../constants/data.json";
+import { useContext, useState } from "react";
 import Tasks from "./Tasks";
+import { TasksContext } from "../App";
 
 const MainContainer = () => {
-  const [todoTasks, setTodoTasks] = useState(data["todo-tasks"]);
-  const [workingTask, setWorkingTasks] = useState(data["working-tasks"]);
-  const [finishedTask, setFinishedTasks] = useState(data["finished-tasks"]);
-
-  console.log(todoTasks)
-
   const [newText, setNewText] = useState("");
 
-  const addTask = (e) => {
-    e.preventDefault();
-    const newTask = {
-      id: Math.random(),
-      text: newText,
-      status: "todo"
-    }
-    setTodoTasks((prevTask) => {
-      const updatedTasks = {...prevTask}
-      updatedTasks.list.push(newTask) 
-      return updatedTasks;
-    }) 
-  }
+  const { todoTasks, workingTask, finishedTask, addTask } =
+    useContext(TasksContext);
 
   return (
     <div>
@@ -33,9 +16,14 @@ const MainContainer = () => {
           type="text"
           value={newText}
           placeholder="type..."
-          onChange={(e) => {setNewText(e.target.value)}}
+          onChange={(e) => {
+            setNewText(e.target.value);
+          }}
         />
-        <button className="px-3 py-1 rounded-r-lg bg-green-600 text-white text-lg font-bold hover:opacity-85" onClick={addTask}>
+        <button
+          className="px-3 py-1 rounded-r-lg bg-green-600 text-white text-lg font-bold hover:opacity-85"
+          onClick={(e) => addTask(e, newText)}
+        >
           Add Task
         </button>
       </form>

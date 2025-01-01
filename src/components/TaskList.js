@@ -6,7 +6,7 @@ const TaskList = ({ list }) => {
     <div className="mx-2 my-4">
       {list?.map((d) => {
         return (
-          <CurrentTask key={d.id} text={d.text} status={d.status} />
+          <CurrentTask key={d.id} text={d.text} status={d.status} taskId={d.id} />
         );
       })}
     </div>
