@@ -21,7 +21,7 @@ const EditTask = ({ taskId, setEditToggle }) => {
           onChange={(e) => setNewText(e.target.value)}
         />
         <button
-          className="px-3 py-1 rounded-r-lg bg-blue-400 text-white text-lg font-bold hover:opacity-85"
+          className="px-3 py-1 rounded-r-lg bg-blue-400 text-white text-lg hover:opacity-85"
           onClick={editTaskButton}
         >
           Edit

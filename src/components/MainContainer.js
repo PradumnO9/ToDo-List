@@ -28,14 +28,7 @@ const MainContainer = () => {
         </button>
       </form>
 
-      <div className="flex">
-        {/* {Object.values(taskData).map((data => {
-          console.log(data)
-          return <div>
-            <Tasks key={data.id} list={data.list} title={data.title} />
-          </div>
-        }))} */}
-
+      <div className="md:flex">
         <Tasks list={todoTasks.list} title={todoTasks.title} />
         <Tasks list={workingTask.list} title={workingTask.title} />
         <Tasks list={finishedTask.list} title={finishedTask.title} />

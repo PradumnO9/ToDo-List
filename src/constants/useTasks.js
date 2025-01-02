@@ -46,7 +46,6 @@ const useTasks = (data) => {
     e.preventDefault();
     let taskObj = todoTasks.list.filter((t) => t.id === taskId);
     taskObj[0].status = "working";
-    console.log(taskObj[0]);
     setTodoTasks((prevTask) => {
       const updatedTasks = { ...prevTask };
       console.log(updatedTasks);
@@ -67,7 +66,6 @@ const useTasks = (data) => {
     taskObj[0].status = "finished";
     setWorkingTasks((prevWorkingTask) => {
       const updatedTasks = { ...prevWorkingTask };
-      console.log(updatedTasks);
       const newArr = updatedTasks.list.filter((task) => task.id !== taskId);
       updatedTasks.list = newArr;
       return updatedTasks;
