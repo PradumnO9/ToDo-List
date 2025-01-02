@@ -6,7 +6,8 @@ import EditTask from "./EditTask";
 
 const CurrentTask = ({ text, status, taskId }) => {
   const [editToggle, setEditToggle] = useState(false);
-  const { deleteTodoTask } = useContext(TasksContext);
+  const { deleteTodoTask, moveToWorking, moveToFinished } =
+    useContext(TasksContext);
 
   const handleEditButton = () => {
     setEditToggle(!editToggle);
@@ -46,7 +47,10 @@ const CurrentTask = ({ text, status, taskId }) => {
                   >
                     Delete
                   </button>
-                  <button className="bg-red-400 px-2 py-1 ml-2 rounded-md hover:bg-opacity-80">
+                  <button
+                    className="bg-red-400 px-2 py-1 ml-2 rounded-md hover:bg-opacity-80"
+                    onClick={(e) => moveToWorking(e, taskId)}
+                  >
                     <p className="flex items-center justify-between">
                       Working <SlActionRedo size={17} className="ml-1" />
                     </p>
@@ -56,7 +60,10 @@ const CurrentTask = ({ text, status, taskId }) => {
             </div>
           )}
           {status === "working" && (
-            <button className="bg-yellow-500 px-2 py-1 rounded-md hover:bg-opacity-80">
+            <button
+              className="bg-yellow-500 px-2 py-1 rounded-md hover:bg-opacity-80"
+              onClick={(e) => moveToFinished(e, taskId)}
+            >
               <p className="flex items-center justify-between">
                 Move To Finished <SlActionRedo size={17} className="ml-1" />
               </p>

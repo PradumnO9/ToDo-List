@@ -2,6 +2,8 @@ import CurrentTask from "./CurrentTask";
 
 const TaskList = ({ list }) => {
 
+  // console.log(list)
+
   return (
     <div className="mx-2 my-4">
       {list?.map((d) => {

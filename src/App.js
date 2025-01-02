@@ -7,14 +7,32 @@ import "./App.css";
 export const TasksContext = createContext();
 
 function App() {
-
-  const { todoTasks, workingTask, finishedTask, addTask, editTask, deleteTodoTask } = useTasks(data);
-  console.log(todoTasks)
+  const {
+    todoTasks,
+    workingTask,
+    finishedTask,
+    addTask,
+    editTask,
+    deleteTodoTask,
+    moveToWorking,
+    moveToFinished
+  } = useTasks(data);
 
   return (
     <div className="App">
       <h1 className="text-center font-bold text-2xl my-3">To-do list</h1>
-      <TasksContext.Provider value={{ todoTasks, workingTask, finishedTask, addTask, editTask, deleteTodoTask }}>
+      <TasksContext.Provider
+        value={{
+          todoTasks,
+          workingTask,
+          finishedTask,
+          addTask,
+          editTask,
+          deleteTodoTask,
+          moveToWorking,
+          moveToFinished
+        }}
+      >
         <MainContainer />
       </TasksContext.Provider>
     </div>
