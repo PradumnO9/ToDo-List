@@ -15,7 +15,8 @@ function App() {
     editTask,
     deleteTodoTask,
     moveToWorking,
-    moveToFinished
+    moveToFinished,
+    deleteFinishedTasks
   } = useTasks(data);
 
   return (
@@ -30,7 +31,8 @@ function App() {
           editTask,
           deleteTodoTask,
           moveToWorking,
-          moveToFinished
+          moveToFinished,
+          deleteFinishedTasks
         }}
       >
         <MainContainer />

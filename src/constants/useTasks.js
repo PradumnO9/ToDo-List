@@ -77,6 +77,15 @@ const useTasks = (data) => {
     });
   };
 
+  const deleteFinishedTasks = (taskId) => {
+    setFinishedTasks((prevFinishedTask) => {
+      const updatedTasks = { ...prevFinishedTask };
+      const newArr = updatedTasks.list.filter((task) => task.id !== taskId);
+      updatedTasks.list = newArr;
+      return updatedTasks;
+    });
+  }
+
   return {
     todoTasks,
     workingTask,
@@ -86,6 +95,7 @@ const useTasks = (data) => {
     deleteTodoTask,
     moveToWorking,
     moveToFinished,
+    deleteFinishedTasks
   };
 };
 

@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { FcOk } from "react-icons/fc";
 import { SlActionRedo } from "react-icons/sl";
 import { TasksContext } from "../App";
+import { RxCross2 } from "react-icons/rx";
 import EditTask from "./EditTask";
 
 const CurrentTask = ({ text, status, taskId }) => {
   const [editToggle, setEditToggle] = useState(false);
-  const { deleteTodoTask, moveToWorking, moveToFinished } =
+  const { deleteTodoTask, moveToWorking, moveToFinished, deleteFinishedTasks } =
     useContext(TasksContext);
 
   const handleEditButton = () => {
@@ -14,12 +15,7 @@ const CurrentTask = ({ text, status, taskId }) => {
   };
   return (
     <div>
-      <div
-        className={
-          "bg-slate-200 p-2 rounded-lg my-2 " +
-          (status === "finished" && "flex justify-between items-center")
-        }
-      >
+      <div className="bg-slate-200 p-2 rounded-lg my-2 ">
         <p className="ml-2">{text}</p>
         <div className="mt-3 text-white">
           {status === "todo" && (
@@ -69,7 +65,12 @@ const CurrentTask = ({ text, status, taskId }) => {
               </p>
             </button>
           )}
-          {status === "finished" && <FcOk color="black" size={25} />}
+          {status === "finished" && (
+            <div className="flex justify-between items-center">
+              <FcOk color="black" size={25} />
+              <RxCross2 className="cursor-pointer" color="red" size={27} onClick={() => deleteFinishedTasks(taskId)} />
+            </div>
+          )}
         </div>
       </div>
       {status === "todo" && editToggle && (
